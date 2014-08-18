@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'ascmaster'
+
+raise "You must provide a file to convert!" unless ARGV[0]
+filename = ARGV[0]
+width    = ARGV[1] ? ARGV[1].to_i : 100
+Ascmaster::ImgToAsciiConverter.convert(filename, width)
+exit

@@ -4,14 +4,14 @@ include Magick
 
 module Ascmaster
   class ImgToAsciiConverter
-    ASCII_CHARS = '.:iI'
+    ASCII_CHARS = ' ˙.:i|#◙'
 
     class << self
       def image_to_ascii(image)
         ascii = []
         image.each_pixel do |pixel|
           scaled_pixel = pixel.intensity.to_f / MaxRGB
-          ascii << ASCII_CHARS[(ASCII_CHARS.length * scaled_pixel).round]
+          ascii << ASCII_CHARS[((ASCII_CHARS.length - 1) * scaled_pixel).round]
         end
         return ascii
       end
